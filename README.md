@@ -4,6 +4,13 @@ Aramex for [glitchr/omnibus](https://github.com/glitchr-studio/omnibus): rates (
 shipments with their labels (Shipping), tracking (Tracking) and offices (Location) - the JSON
 web services on ws.aramex.net.
 
+```php
+$gateway = (new AramexGatewayFactory($http))->create($options);   // $http: the application's HTTP client - none given, the factory makes its own; the options below
+```
+
+No framework needed: the package requires `glitchr/omnibus` and `symfony/http-client`. In a
+Symfony application, the same through the bundle's configuration:
+
 ```yaml
 omnibus:
     gateways:

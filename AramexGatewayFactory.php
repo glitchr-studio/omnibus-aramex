@@ -7,7 +7,6 @@ use Omnibus\Aramex\Action\RatingAction;
 use Omnibus\Aramex\Action\ShippingAction;
 use Omnibus\Aramex\Action\TrackingAction;
 use Omnibus\Config;
-use Omnibus\Exception\InvalidConfigException;
 use Omnibus\GatewayFactory;
 use Symfony\Component\HttpClient\HttpClient;
 
@@ -32,7 +31,7 @@ final class AramexGatewayFactory extends GatewayFactory
             'omnibus.required_options' => ['username', 'password', 'account_number', 'account_pin', 'account_entity', 'account_country'],
             'sandbox' => false,
             'omnibus.api' => function (Config $c) {
-                $http = $this->http ?? (class_exists(HttpClient::class) ? HttpClient::create() : throw new InvalidConfigException('The "aramex" gateway needs symfony/http-client.'));
+                $http = $this->http ?? HttpClient::create();
 
                 return new Api($http, (string) $c['username'], (string) $c['password'], (string) $c['account_number'], (string) $c['account_pin'], (string) $c['account_entity'], (string) $c['account_country'], (bool) $c['sandbox']);
             },
