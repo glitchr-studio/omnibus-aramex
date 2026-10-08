@@ -38,4 +38,4 @@ the username, password, account number, PIN, entity and country; the sandbox has
 Built from Aramex's published web services documentation and tested on recorded answers; not yet
 run against the sandbox: that needs the credentials above.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
